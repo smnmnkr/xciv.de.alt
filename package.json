@@ -1,0 +1,18 @@
+{
+  "name": "xciv.de.alt",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "hugo server -D",
+    "export": "npm run clean && hugo --gc",
+    "clean": "rm -rf ./public"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.0.4",
+    "postcss": "^8.1.10",
+    "tailwindcss": "^2.0.1",
+    "@fullhuman/postcss-purgecss": "^3.0.0"
+  }
+}

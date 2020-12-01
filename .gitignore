@@ -1,0 +1,6 @@
+# node related
+node_modules/
+
+# hugo related
+public/
+resources/
