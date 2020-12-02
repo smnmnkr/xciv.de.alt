@@ -1,21 +1,21 @@
-{{$menu := slice "Home" "About" "Contact"}}
-
 <header class="text-white bg-gray-800 px-2 sm:px-6 lg:px-8">
   <div
     class="relative flex items-center justify-center sm:justify-between h-12 lg:h-16"
   >
     <!-- Branding -->
-    <a href="#" class="text-2xl tracking-wider font-bold">xciv.de</a>
+    <a href="{{.Site.BaseURL}}" class="text-2xl tracking-wider font-bold"
+      >xciv.de</a
+    >
 
     <!-- Desktop Menu -->
     <div class="hidden sm:block">
       <nav class="flex space-x-4">
-        {{ range $menu }}
+        {{ range .Site.Menus.main }}
         <a
-          href="#"
+          href="{{ .URL }}"
           class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700"
         >
-          {{ . }}
+          {{ .Name }}
         </a>
         {{ end }}
       </nav>
@@ -25,12 +25,12 @@
   <!-- Mobile Menu -->
   <div class="sm:hidden">
     <nav class="pt-2 pb-3 space-y-1">
-      {{ range $menu }}
+      {{ range .Site.Menus.main }}
       <a
-        href="#"
+        href="{{ .URL }}"
         class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700"
       >
-        {{ . }}
+        {{ .Name }}
       </a>
       {{ end }}
     </nav>
