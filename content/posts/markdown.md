@@ -4,7 +4,6 @@ description: "This is the description"
 excerpt: "Preview of styled MarkDown components."
 slug: "markdown"
 date: "2020-11-10"
-menu: "main"
 ---
 
 ## Headings:
