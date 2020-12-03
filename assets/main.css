@@ -36,7 +36,7 @@ h6 {
 
 ul,
 ol {
-  @apply pl-4 my-4;
+  @apply pl-4 my-4 sm:text-lg;
 }
 
 ul {
@@ -67,7 +67,7 @@ a:not([class]) {
 }
 
 hr {
-  @apply my-6;
+  @apply my-6 sm:my-8;
 }
 
 pre {
@@ -80,9 +80,6 @@ table {
 
 th,
 td {
-  @apply border px-4 py-2;
+  @apply border-b border-gray-300 px-4 py-2;
 }
 
-th {
-  @apply bg-gray-300;
-}
