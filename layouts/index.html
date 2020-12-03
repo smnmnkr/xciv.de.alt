@@ -38,9 +38,9 @@
 </article>
 
 <div
-  class="my-10 mx-auto max-w-4xl px-4 sm:my-12 sm:px-6 md:mt-16 lg:my-20 lg:px-8 xl:my-28"
+  class="my-10 mx-auto max-w-2xl px-4 sm:my-12 sm:px-6 md:mt-16 lg:my-20 lg:px-8 xl:my-28"
 >
-  {{ range .Pages }}
+  {{ range (where .Site.RegularPages ".Type" "posts") }}
 
   <a class="text-black" href="{{ .Permalink }}">
     <article class="rounded-lg p-6 mb-8 transition hover:bg-gray-100">
