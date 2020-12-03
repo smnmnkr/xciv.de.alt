@@ -1,31 +1,25 @@
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Title -->
+  <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
 
+  <!-- Description -->
+  {{- if .Description }}
+  <meta name="description" content="{{ .Description }}" />
+  {{ end -}}
 
-    <!-- Title -->
-    <title>
-        {{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}
-    </title>
+  <!-- CSS -->
+  {{ $css := resources.Get "main.css" | }}
+  {{ $css := $css | postCSS (dict "config" "./postcss.config.js") }}
 
-    <!-- Description -->
-    {{- if .Description }}
-        <meta name="description" content="{{ .Description }}" />
-    {{ end -}}
+  {{- if .Site.IsServer }}
+  <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
 
-    <!-- CSS -->
-    {{ $css := resources.Get "main.css" | }}
-    {{ $css := $css | postCSS (dict "config" "./postcss.config.js") }}
+  {{ else }}
+  {{ $css := $css | minify | fingerprint | resources.PostProcess }}
+  <link href="{{ $css.RelPermalink }}" rel="stylesheet" integrity="{{ $css.Data.Integrity }}" />
+  {{ end }}
 
-    {{- if .Site.IsServer }}
-        <link href="{{ $css.RelPermalink }}" rel="stylesheet">
-
-    {{ else }}
-        {{ $css := $css | minify | fingerprint | resources.PostProcess }}
-        <link href="{{ $css.RelPermalink }}" rel="stylesheet" integrity="{{ $css.Data.Integrity }}" />
-
-    {{ end }}
-    
-    
 </head>
