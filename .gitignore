@@ -2,5 +2,9 @@
 node_modules/
 
 # hugo related
+static/
 public/
 resources/
+
+# OS related
+.DS_Store
