@@ -6,3 +6,7 @@
 
   </div>
 </footer>
+
+<!-- JS -->
+{{ $js := resources.Get "/js/main.js" | babel | minify | fingerprint }}
+<script src="{{ $js.Permalink }}"></script>
