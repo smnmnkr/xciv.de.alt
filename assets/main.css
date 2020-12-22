@@ -62,17 +62,22 @@ p {
   @apply leading-normal mb-4 sm:text-lg;
 }
 
+p:last-of-type {
+  @apply mb-0;
+}
+
 a:not([class]) {
   @apply text-blue-400;
+}
+
+blockquote {
+  @apply p-4 bg-gray-50 border-l-4 border-gray-400 italic rounded;
 }
 
 hr {
   @apply my-6 sm:my-8;
 }
 
-pre {
-  @apply w-min p-4 rounded-lg;
-}
 
 table {
   @apply table-auto;
@@ -83,3 +88,6 @@ td {
   @apply border-b border-gray-300 px-4 py-2;
 }
 
+pre {
+  @apply w-min p-4 rounded-lg;
+}
