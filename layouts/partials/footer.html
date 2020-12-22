@@ -8,5 +8,11 @@
 </footer>
 
 <!-- JS -->
-{{ $js := resources.Get "/js/main.js" | babel | minify | fingerprint }}
-<script src="{{ $js.Permalink }}"></script>
+{{ $js := resources.Get "/main.js" | js.Build | babel }}
+{{- if .Site.IsServer }}
+<script type="module" src="{{ $js.Permalink }}"></script>
+
+{{ else }}
+{{ $js := $js | minify | fingerprint }}
+<script type="module" src="{{ $js.Permalink }}"></script>
+{{ end }}
